@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 
+import { GAME_CONFIG, PHYSICS_BALANCE } from './config';
 import { BootScene, DiarioScene, HUDScene, MenuScene } from './scenes';
 import {
   LeitoDoRioScene,
@@ -10,12 +11,12 @@ import {
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: 'game-container',
-  width: 800,
-  height: 600,
+  width: GAME_CONFIG.width,
+  height: GAME_CONFIG.height,
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { x: 0, y: 0 },
+      gravity: PHYSICS_BALANCE.gravity,
       debug: false
     }
   },
