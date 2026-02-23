@@ -6,6 +6,7 @@ type InputSnapshot = {
   jump: boolean;
   down: boolean;
   interact: boolean;
+  run: boolean;
 };
 
 type InputAction = keyof InputSnapshot;
@@ -27,7 +28,8 @@ const INITIAL_SNAPSHOT: InputSnapshot = {
   right: false,
   jump: false,
   down: false,
-  interact: false
+  interact: false,
+  run: false,
 };
 
 const KEY_CODE_TO_ACTION: Record<string, InputAction> = {
@@ -40,7 +42,9 @@ const KEY_CODE_TO_ACTION: Record<string, InputAction> = {
   Space: 'jump',
   ArrowDown: 'down',
   KeyS: 'down',
-  KeyE: 'interact'
+  KeyE: 'interact',
+  ShiftLeft: 'run',
+  ShiftRight: 'run',
 };
 
 export class InputManager {
@@ -89,6 +93,10 @@ export class InputManager {
 
   isInteract(): boolean {
     return this.keyboard.interact || this.touch.interact;
+  }
+
+  isRun(): boolean {
+    return this.keyboard.run;
   }
 
   handleKeyDown(event: Pick<KeyboardEvent, 'code'>): void {

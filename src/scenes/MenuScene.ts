@@ -35,7 +35,7 @@ export class MenuScene extends Phaser.Scene {
     });
 
     const onStart = () => {
-      console.log('iniciar jogo');
+      this.scene.start('TestScene');
     };
 
     this.input.once('pointerdown', onStart);

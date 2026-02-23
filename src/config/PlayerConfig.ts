@@ -1,0 +1,18 @@
+export const PLAYER_CONFIG = {
+  speed: 160,
+  runSpeed: 240,
+  jumpVelocity: -330,
+  maxLives: 3,
+  hurtDuration: 2000,
+  hurtBlinkRate: 100,
+  knockbackSpeed: 200,
+  knockbackDuration: 200,
+  coyoteTime: 80,
+  jumpBuffer: 100,
+  cameraLerp: 0.1,
+  cameraDeadzone: { width: 100, height: 50 },
+  spriteWidth: 32,
+  spriteHeight: 48,
+  hitboxWidthRatio: 0.8,
+  hitboxHeightRatio: 0.9,
+} as const;

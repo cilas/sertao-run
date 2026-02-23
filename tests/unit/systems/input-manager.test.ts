@@ -121,6 +121,25 @@ describe('InputManager', () => {
     expect(InputManager.detectTouchDevice()).toBe(false);
   });
 
+  it('maps ShiftLeft and ShiftRight to run', () => {
+    const input = new InputManager('keyboard');
+
+    expect(input.isRun()).toBe(false);
+
+    input.setKeyboardFromCode('ShiftLeft', true);
+    expect(input.isRun()).toBe(true);
+    input.setKeyboardFromCode('ShiftLeft', false);
+    expect(input.isRun()).toBe(false);
+
+    input.setKeyboardFromCode('ShiftRight', true);
+    expect(input.isRun()).toBe(true);
+  });
+
+  it('run is always false on touch devices', () => {
+    const input = new InputManager('touch');
+    expect(input.isRun()).toBe(false);
+  });
+
   it('creates touch controls only for touch mode', () => {
     const keyboardInput = new InputManager('keyboard');
     const maybeControls = keyboardInput.createTouchControls({} as Scene);
