@@ -1,14 +1,6 @@
 import Phaser from 'phaser';
 
-class BootScene extends Phaser.Scene {
-  constructor() {
-    super('BootScene');
-  }
-
-  create() {
-    this.cameras.main.setBackgroundColor('#000000');
-  }
-}
+import { BootScene } from './scenes';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
