@@ -4,12 +4,17 @@ on:
   pull_request:
     types:
       - opened
+      - synchronize
+      - reopened
+  merge_group:
+    types:
+      - checks_requested
   workflow_dispatch:
 
 jobs:
   lint:
     name: Lint
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,7 +43,7 @@ jobs:
 
   typecheck:
     name: Typecheck
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -67,7 +72,7 @@ jobs:
 
   unit-tests:
     name: Unit Tests
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -96,7 +101,7 @@ jobs:
 
   build:
     name: Build
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
