@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import { GAME_CONFIG, PHYSICS_BALANCE } from './config';
-import { BootScene, DiarioScene, HUDScene, MenuScene } from './scenes';
+import { BootScene, DiarioScene, HUDScene, MenuScene, TestScene } from './scenes';
 import {
   LeitoDoRioScene,
   SerraNascenteScene,
@@ -23,6 +23,7 @@ const config: Phaser.Types.Core.GameConfig = {
   scene: [
     BootScene,
     MenuScene,
+    TestScene,
     HUDScene,
     DiarioScene,
     SertaoSecoScene,

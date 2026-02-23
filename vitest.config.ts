@@ -16,7 +16,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['src/config/**/*.ts'],
+      include: ['src/config/**/*.ts', 'src/entities/PlayerStates.ts'],
       thresholds: {
         lines: 80,
         functions: 80,
