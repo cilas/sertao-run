@@ -1,6 +1,11 @@
 import Phaser from 'phaser';
 
-import { BootScene } from './scenes';
+import { BootScene, DiarioScene, HUDScene, MenuScene } from './scenes';
+import {
+  LeitoDoRioScene,
+  SerraNascenteScene,
+  SertaoSecoScene
+} from './scenes/phases';
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -14,7 +19,15 @@ const config: Phaser.Types.Core.GameConfig = {
       debug: false
     }
   },
-  scene: [BootScene],
+  scene: [
+    BootScene,
+    MenuScene,
+    HUDScene,
+    DiarioScene,
+    SertaoSecoScene,
+    LeitoDoRioScene,
+    SerraNascenteScene
+  ],
   backgroundColor: '#000000'
 };
 
